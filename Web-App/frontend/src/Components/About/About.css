@@ -1,0 +1,88 @@
+/* General Container */
+.about-container {
+    color: #F8F9FA;
+}
+
+/* Section Styling */
+section {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+/* Headings */
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Paragraph Styling */
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Coral Image Section */
+.coral-intro img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Two Column Layout */
+.two-column, .bleaching-comparison, .final-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: auto;
+    text-align: left;
+    margin-top: 60px;
+}
+
+.two-column img, .bleaching-comparison img {
+    width: 45%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.two-column .text, .bleaching-comparison .text {
+    width: 50%;
+}
+
+/* Final Section - Why & How */
+.final-section {
+    text-align: center;
+}
+
+.final-section .box {
+    width: 48%;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.final-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.final-section ul li {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+}

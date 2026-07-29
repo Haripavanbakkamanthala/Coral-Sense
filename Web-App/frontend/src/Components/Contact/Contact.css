@@ -1,0 +1,171 @@
+/* Contact Page Container */
+.contact-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 50px;
+    color: #f8f9fa;
+    text-align: center;
+}
+
+.contact-container h2 {
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+/* Team Section */
+.team-section {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+/* Team Leader */
+.team-lead {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 10px;
+}
+
+/* Team Member and Guide Cards */
+.team-member,
+.guide-card {
+    width: 280px;
+    padding: 25px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.team-member:hover,
+.guide-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Team Member and Guide Photos */
+.team-member img,
+.guide-card img {
+    display: block;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 10px;
+    object-fit: cover;
+    object-position: center;
+    border: 3px solid #ffd700;
+    border-radius: 50%;
+}
+
+/* Names */
+.team-member h3,
+.guide-card h3 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+/* Descriptions */
+.team-member p,
+.guide-card p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Social Links */
+.social-links a {
+    display: inline-block;
+    margin: 5px;
+    padding: 8px 12px;
+    background: #ffd700;
+    color: #000;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    background: #ffa500;
+}
+
+/* Guide Section */
+.guide-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+/* Email Link */
+.email-link {
+    display: block;
+    margin-top: 10px;
+    color: #ffd700;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.email-link:hover {
+    text-decoration: underline;
+}
+
+/* Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.contact-form button {
+    padding: 12px;
+    background: #ffd700;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.contact-form button:hover {
+    background: #ffa500;
+}
+
+/* Mobile Layout */
+@media (max-width: 600px) {
+    .contact-container {
+        padding: 30px 15px;
+    }
+
+    .team-section {
+        gap: 20px;
+    }
+
+    .team-member,
+    .guide-card {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .team-member img,
+    .guide-card img {
+        width: 150px;
+        height: 150px;
+    }
+}

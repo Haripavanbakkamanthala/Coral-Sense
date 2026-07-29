@@ -1,0 +1,175 @@
+/* Main Container */
+.check-health-container {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    padding: 50px;
+    color: #F8F9FA;
+}
+
+
+/* Upload Box */
+.upload-box {
+    width: 100%;
+    max-width: 450px;
+    height: 250px;
+    border: 2px dashed #FFD700;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #F8F9FA;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.upload-box:hover, .upload-box.dragging {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #FFA500;
+}
+
+/* Uploaded Image */
+.uploaded-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Analysis Section - Side-by-Side Layout */
+.analysis-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Image Container */
+.image-container {
+    width: 45%;
+    text-align: center;
+}
+
+.image-container p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+/* Uploaded & Result Image */
+.input-image, .result-image {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Result Box - Matches Upload Box */
+.result-box {
+    width: 100%;
+    max-width: 350px;
+    height: 250px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #F8F9FA;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Placeholder Text Before Analyzing */
+.placeholder-text {
+    font-size: 1rem;
+    opacity: 0.7;
+    color: #F8F9FA;
+}
+
+/* Loading Animation */
+.loading-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FFD700;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Result Image Container */
+.result-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Result Label on Top-Left */
+.result-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #FFD700;
+    padding: 5px 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* Bleached Coral - Red */
+.bleached {
+    background: rgba(255, 107, 107, 0.9);
+    color: white;
+}
+
+/* Healthy Coral - Green */
+.healthy {
+    background: rgba(76, 175, 80, 0.9);
+    color: white;
+}
+
+/* Analyze Button */
+.analyze-btn {
+    background: #222831;
+    color: #F8F9FA;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: 2px solid #FFD700;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: block;
+    margin: 30px auto 0;
+}
+
+.analyze-btn:hover {
+    background: #FFD700;
+    color: black;
+}
+
+.analyze-btn:disabled {
+    background: #555;
+    cursor: not-allowed;
+}

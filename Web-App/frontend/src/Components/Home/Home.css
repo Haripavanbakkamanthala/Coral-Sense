@@ -1,0 +1,75 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600&family=Poppins:wght@300;400&display=swap');
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 550px;
+    padding: 30px;
+    background: url("/assets/coral-reef.jpg") center/cover no-repeat;
+    position: relative;
+    color: #F8F9FA;
+    text-align: center;
+}
+
+.hero-content {
+    
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 60%;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 800; /* Thin stroke */
+    letter-spacing: 1px;
+    color: #F8F9FA;
+    margin: 0;
+}
+
+.hero-content p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    opacity: 0.9;
+}
+
+/* CTA Section */
+.cta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Straight Line */
+.line {
+    width: 3px;
+    height: 100px;
+    background: #F8F9FA;
+    margin-bottom: 10px;
+}
+
+/* Call to Action Button */
+.cta-button {
+    background: rgba(255, 255, 255, 0.1); /* Transparent White */
+    backdrop-filter: blur(10px); /* Blurred Background */
+    -webkit-backdrop-filter: blur(10px);
+    color: #F8F9FA;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid  #efd033;
+}
+
+.cta-button:hover {
+    border-color: #222831;
+}

@@ -1,0 +1,17 @@
+/* Footer Styles */
+.footer {
+  margin-top: 20px;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .footer a {
+    color: #ffdd57;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  

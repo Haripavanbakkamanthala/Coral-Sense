@@ -1,0 +1,114 @@
+/* Project Info Container */
+.project-info-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    text-align: center;
+    color: #F8F9FA;
+}
+
+.project-info-container h2{
+    margin-top: 0;
+}
+
+/* Section Spacing */
+.about-project,
+.how-it-works,
+.technologies,
+.importance {
+    margin-bottom: 50px;
+}
+
+/* Section Headings */
+.project-info-container h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #4DBFE3;
+}
+
+/* Paragraph Styling */
+.project-info-container p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* How It Works Steps */
+.steps {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.step {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease-in-out;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+}
+
+.step span {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+/* Technologies Used */
+.tech-list {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.tech-list span {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    transition: background 0.3s ease-in-out;
+}
+
+.tech-list span:hover {
+    background: #4DBFE3;
+}
+
+/* Importance Section */
+.importance {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply Animation */
+.project-info-container section {
+    animation: fadeInUp 1s ease-in-out;
+}

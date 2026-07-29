@@ -1,0 +1,4 @@
+train: coral reef\train  # Path to training images folder
+val: coral reef\valid    # Path to validation images folder
+nc: 2  # Number of classes
+names: ['healthy_corals', 'bleached_corals']  # Class names
