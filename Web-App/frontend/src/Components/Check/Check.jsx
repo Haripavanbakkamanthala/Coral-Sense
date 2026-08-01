@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import gsap from "gsap";
-import "./Check.css";
 
 const Check = () => {
   const [image, setImage] = useState(null);
@@ -20,7 +19,7 @@ const Check = () => {
         y: 0,
         duration: 1.2,
         ease: "power2.out",
-      }
+      },
     );
   }, []);
 
@@ -34,7 +33,7 @@ const Check = () => {
           y: 0,
           duration: 1,
           ease: "power2.out",
-        }
+        },
       );
     }
   }, [image]);
@@ -49,15 +48,13 @@ const Check = () => {
           scale: 1,
           duration: 1,
           ease: "power2.out",
-        }
+        },
       );
     }
   }, [result]);
 
   const processImage = (file) => {
-    if (!file) {
-      return;
-    }
+    if (!file) return;
 
     if (!file.type.startsWith("image/")) {
       alert("Please select a valid image file.");
@@ -123,11 +120,9 @@ const Check = () => {
 
       const myApiResponse = await axios.post(
         "http://127.0.0.1:5001/predict",
-        formData
+        formData,
       );
-
       myApiResult = myApiResponse.data.prediction;
-
       console.log("Local API result:", myApiResult);
     } catch (error) {
       console.error("Local API failed:", error);
@@ -146,9 +141,7 @@ const Check = () => {
         },
       });
 
-      roboflowResult =
-        roboflowResponse.data.predicted_classes?.[0] ?? null;
-
+      roboflowResult = roboflowResponse.data.predicted_classes?.[0] ?? null;
       console.log("Roboflow result:", roboflowResult);
     } catch (error) {
       console.error("Roboflow API failed:", error);
@@ -164,31 +157,24 @@ const Check = () => {
       finalResult = "API error or server down";
     }
 
-    setResult({
-      predictedClass: finalResult,
-      image,
-    });
-
+    setResult({ predictedClass: finalResult, image });
     setLoading(false);
   };
 
-  const normalizedPrediction =
-    result?.predictedClass?.toLowerCase() ?? "";
-
+  const normalizedPrediction = result?.predictedClass?.toLowerCase() ?? "";
   const resultClass = normalizedPrediction.includes("bleached")
     ? "bleached"
     : "healthy";
 
   return (
-    <div className="check-health-container">
-      <h2>Check Coral Health</h2>
-
-      <p>Upload a coral reef image to analyse its health.</p>
-
-      <br />
+    <div className="check-health-container mx-auto max-w-6xl px-6 py-10 text-slate-800">
+      <h2 className="text-[2rem] text-sky-700">Check Coral Health</h2>
+      <p className="mt-2 text-[1rem] text-slate-600">
+        Upload a coral reef image to analyse its health.
+      </p>
 
       <div
-        className={`upload-box ${dragging ? "dragging" : ""}`}
+        className={`upload-box mt-6 cursor-pointer rounded-[24px] border-2 border-dashed p-8 text-center transition-all duration-200 ${dragging ? "border-sky-600 bg-sky-50 shadow-[0_12px_30px_rgba(14,165,233,0.12)]" : "border-slate-300 bg-white/90 shadow-[0_12px_30px_rgba(15,23,42,0.06)]"}`}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
@@ -200,12 +186,12 @@ const Check = () => {
           <img
             src={image}
             alt="Uploaded coral"
-            className="uploaded-image"
+            className="uploaded-image mx-auto max-h-[280px] rounded-[12px] object-cover"
           />
         ) : (
-          <p>
+          <p className="text-[1rem] text-slate-700">
             Drag and drop an image here, or{" "}
-            <span>click to upload</span>
+            <span className="font-semibold text-sky-700">click to upload</span>
           </p>
         )}
 
@@ -219,37 +205,40 @@ const Check = () => {
       </div>
 
       {image && (
-        <div className="analysis-container">
-          <div className="image-container">
-            <p>Input Image</p>
-
+        <div className="analysis-container mt-6 flex flex-col gap-6 md:flex-row">
+          <div className="image-container flex-1 rounded-[20px] border border-slate-200 bg-white/90 p-6 shadow-[0_12px_30px_rgba(15,23,42,0.06)]">
+            <p className="mb-4 text-[1.1rem] font-semibold text-sky-700">
+              Input Image
+            </p>
             <img
               src={image}
               alt="Uploaded coral"
-              className="input-image"
+              className="input-image h-[280px] w-full rounded-[12px] object-cover"
             />
           </div>
 
-          <div className="image-container">
-            <p>Result</p>
-
-            <div className="result-box">
+          <div className="image-container flex-1 rounded-[20px] border border-slate-200 bg-white/90 p-6 shadow-[0_12px_30px_rgba(15,23,42,0.06)]">
+            <p className="mb-4 text-[1.1rem] font-semibold text-sky-700">
+              Result
+            </p>
+            <div className="result-box flex min-h-[280px] items-center justify-center rounded-[12px] border border-slate-200 bg-slate-50 p-4 text-center">
               {loading ? (
-                <p className="loading-text">Analysing...</p>
+                <p className="loading-text text-slate-700">Analysing...</p>
               ) : result ? (
-                <div className="result-image-container">
+                <div className="result-image-container w-full">
                   <img
                     src={result.image}
                     alt="Analysed coral"
-                    className="result-image"
+                    className="result-image h-[220px] w-full rounded-[12px] object-cover"
                   />
-
-                  <div className={`result-tag ${resultClass}`}>
+                  <div
+                    className={`result-tag mt-4 inline-block rounded-full px-4 py-2 text-sm font-semibold ${resultClass === "bleached" ? "bg-rose-100 text-rose-700" : "bg-emerald-100 text-emerald-700"}`}
+                  >
                     {result.predictedClass}
                   </div>
                 </div>
               ) : (
-                <p className="placeholder-text">
+                <p className="placeholder-text text-slate-500">
                   Click Analyze to get the result
                 </p>
               )}
@@ -258,13 +247,15 @@ const Check = () => {
         </div>
       )}
 
-      <button
-        className="analyze-btn"
-        onClick={handleAnalyze}
-        disabled={!selectedFile || !base64Image || loading}
-      >
-        {loading ? "Analysing..." : "Analyze Coral"}
-      </button>
+      <div className="mt-6 flex justify-center">
+        <button
+          className="analyze-btn inline-flex items-center justify-center rounded-full bg-sky-600 px-7 py-3 text-sm font-semibold text-white shadow-[0_12px_24px_rgba(14,165,233,0.22)] transition duration-200 hover:bg-sky-700 hover:shadow-[0_16px_28px_rgba(14,165,233,0.28)] disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-500 disabled:shadow-none"
+          onClick={handleAnalyze}
+          disabled={!selectedFile || !base64Image || loading}
+        >
+          {loading ? "Analysing..." : "Analyze Coral"}
+        </button>
+      </div>
     </div>
   );
 };
