@@ -119,7 +119,7 @@ const Check = () => {
       formData.append("image", selectedFile);
 
       const myApiResponse = await axios.post(
-        "http://127.0.0.1:5001/predict",
+        "http://127.0.0.1:5002/predict",
         formData,
       );
 
@@ -162,7 +162,7 @@ const Check = () => {
     } else if (roboflowResult) {
       finalResult = roboflowResult;
     } else {
-      finalResult = "API error or server down";
+      finalResult = "This is not a coral image.";
     }
 
     setResult({ predictedClass: finalResult, image });
