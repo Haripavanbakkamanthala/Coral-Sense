@@ -122,7 +122,15 @@ const Check = () => {
         "http://127.0.0.1:5001/predict",
         formData,
       );
-      myApiResult = myApiResponse.data.prediction;
+
+      const backendData = myApiResponse.data;
+
+      if (backendData.is_coral === false) {
+        myApiResult = "This is not a coral image.";
+      } else {
+        myApiResult = backendData.prediction;
+      }
+
       console.log("Local API result:", myApiResult);
     } catch (error) {
       console.error("Local API failed:", error);
@@ -164,7 +172,10 @@ const Check = () => {
   const normalizedPrediction = result?.predictedClass?.toLowerCase() ?? "";
   const resultClass = normalizedPrediction.includes("bleached")
     ? "bleached"
-    : "healthy";
+    : normalizedPrediction.includes("not a coral") ||
+        normalizedPrediction.includes("not coral")
+      ? "not-coral"
+      : "healthy";
 
   return (
     <div className="check-health-container mx-auto max-w-6xl px-6 py-10 text-slate-800">

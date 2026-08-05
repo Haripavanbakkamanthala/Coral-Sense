@@ -2,6 +2,8 @@ from pathlib import Path
 import io
 import os
 
+import numpy as np
+
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from PIL import Image, UnidentifiedImageError
@@ -33,6 +35,39 @@ if not MODEL_PATH.exists():
     )
 
 model = YOLO(str(MODEL_PATH))
+
+
+def image_looks_like_coral(image: Image.Image) -> bool:
+    """Reject obvious non-coral uploads before classification."""
+    rgb = np.asarray(image.convert("RGB"))
+
+    if rgb.size == 0:
+        return False
+
+    gray = np.asarray(image.convert("L"))
+    contrast = float(gray.std())
+    saturation = float(
+        np.asarray(image.convert("HSV"))[:, :, 1].mean() / 255.0
+    )
+    brightness = float(np.asarray(image.convert("HSV"))[:, :, 2].mean() / 255.0)
+
+    if contrast < 18:
+        return False
+
+    if saturation < 0.08 or brightness > 0.95:
+        return False
+
+    red = rgb[:, :, 0].astype(float)
+    green = rgb[:, :, 1].astype(float)
+    blue = rgb[:, :, 2].astype(float)
+
+    greenish = float(((green > red * 0.85) & (green > blue * 0.8)).mean())
+    blueish = float(((blue > red * 0.85) & (blue > green * 0.8)).mean())
+
+    if greenish < 0.18 and blueish < 0.18:
+        return False
+
+    return True
 
 
 @app.route("/", methods=["GET"])
@@ -68,6 +103,13 @@ def predict():
             io.BytesIO(image_data)
         ).convert("RGB")
 
+        if not image_looks_like_coral(image):
+            return jsonify({
+                "is_coral": False,
+                "prediction": "This is not a coral image.",
+                "confidence": "0%",
+            })
+
         results = model.predict(
             source=image,
             save=False,
@@ -86,6 +128,7 @@ def predict():
         confidence = float(probabilities.top1conf) * 100
 
         return jsonify({
+            "is_coral": True,
             "prediction": predicted_class,
             "confidence": f"{confidence:.2f}%",
         })

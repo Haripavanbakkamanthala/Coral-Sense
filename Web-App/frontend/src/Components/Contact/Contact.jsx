@@ -78,7 +78,8 @@ const Contact = () => {
             Project Lead & Backend & API Developer
           </p>
           <p className="mt-1 text-sm text-slate-500">
-            MSc Artificial Intelligence Student, Coventry University
+            MSc Artificial Intelligence & Human Factors Student, Coventry
+            University
           </p>
           <div className="mt-4 flex justify-center gap-4 text-sm text-amber-600">
             <a
@@ -109,7 +110,8 @@ const Contact = () => {
           <h3 className="text-[1.1rem] text-sky-700">Hrithik Singh</h3>
           <p className="mt-2 text-slate-700">Data & Model Engineer</p>
           <p className="mt-1 text-sm text-slate-500">
-            MSc Data Science Student, Coventry University
+            MSc Artificial Intelligence & Human Factors Student, Coventry
+            University
           </p>
           <div className="mt-4 flex justify-center gap-4 text-sm text-amber-600">
             <a
@@ -164,14 +166,15 @@ const Contact = () => {
 
         <div className="team-member rounded-[20px] border border-slate-200 bg-white/90 p-6 text-center shadow-[0_12px_30px_rgba(15,23,42,0.08)]">
           <img
-            src="/assets/Ganesh.jpeg"
+            src="/assets/ganesh.jpg"
             alt="Ganesh Patel"
-            className="mx-auto mb-4 mt-4 h-32 w-32 rounded-full border-4 border-sky-100 object-cover"
+            className="mx-auto mb-4 mt-4 h-32 w-32 rounded-full border-4 border-sky-100 bg-slate-50 object-contain p-1"
           />
           <h3 className="text-[1.1rem] text-sky-700">Ganesh Patel</h3>
           <p className="mt-2 text-slate-700">Coral Domain Researcher</p>
           <p className="mt-1 text-sm text-slate-500">
-            MSc Data Science Student, Coventry University
+            MSc Artificial Intelligence & Human Factors Student, Coventry
+            University
           </p>
           <div className="mt-4 flex justify-center gap-4 text-sm text-amber-600">
             <a
@@ -197,7 +200,7 @@ const Contact = () => {
           <img
             src="/assets/Rithwik.jpeg"
             alt="Rithwik"
-            className="mx-auto mb-4 mt-4 h-32 w-32 rounded-full border-4 border-sky-100 object-cover"
+            className="mx-auto mb-4 mt-4 h-32 w-32 rounded-full border-4 border-sky-100 bg-slate-50 object-contain p-1"
           />
 
           <h3 className="text-[1.1rem] text-sky-700">Rithwik</h3>
@@ -205,7 +208,8 @@ const Contact = () => {
             Deployment & Documentation Engineer
           </p>
           <p className="mt-1 text-sm text-slate-500">
-            MSc Ai and Human Factors Student, Coventry University
+            MSc Artificial Intelligence & Human Factors Student, Coventry
+            University
           </p>
 
           <div className="mt-4 flex justify-center gap-4 text-sm text-amber-600">
