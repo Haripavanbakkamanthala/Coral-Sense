@@ -102,6 +102,17 @@ const Check = () => {
     processImage(file);
   };
 
+  const resetAnalysis = () => {
+    setSelectedFile(null);
+    setBase64Image(null);
+    setImage(null);
+    setResult(null);
+    setLoading(false);
+
+    const input = document.getElementById("fileInput");
+    if (input) input.value = "";
+  };
+
   const handleAnalyze = async () => {
     if (!selectedFile || !base64Image) {
       alert("Please select an image first.");
@@ -258,7 +269,7 @@ const Check = () => {
         </div>
       )}
 
-      <div className="mt-6 flex justify-center">
+      <div className="mt-6 flex justify-center gap-3">
         <button
           className="analyze-btn inline-flex items-center justify-center rounded-full bg-sky-600 px-7 py-3 text-sm font-semibold text-white shadow-[0_12px_24px_rgba(14,165,233,0.22)] transition duration-200 hover:bg-sky-700 hover:shadow-[0_16px_28px_rgba(14,165,233,0.28)] disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-500 disabled:shadow-none"
           onClick={handleAnalyze}
@@ -266,6 +277,16 @@ const Check = () => {
         >
           {loading ? "Analysing..." : "Analyze Coral"}
         </button>
+
+        {result && !loading && (
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition duration-200 hover:border-sky-400 hover:text-sky-700"
+            onClick={resetAnalysis}
+          >
+            Add New Image
+          </button>
+        )}
       </div>
     </div>
   );
