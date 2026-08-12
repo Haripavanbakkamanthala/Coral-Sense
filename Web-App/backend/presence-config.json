@@ -1,0 +1,17 @@
+{
+  "model_name": "coral-presence-v5",
+  "task": "image_classification",
+  "classes": [
+    "coral",
+    "not_coral"
+  ],
+  "image_size": 224,
+  "coral_min_probability": 0.7,
+  "not_coral_max_probability": 0.001,
+  "decision_policy": {
+    "coral": "probability >= 0.70",
+    "not_coral": "probability <= 0.001",
+    "uncertain": "0.001 < probability < 0.70"
+  },
+  "uncertain_message": "The image could not be verified as coral. Please upload a clearer coral image."
+}
